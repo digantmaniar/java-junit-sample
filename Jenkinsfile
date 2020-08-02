@@ -1,10 +1,10 @@
 pipeline {
 
-		stage('Checkout Source') {
+   stage('Checkout Source') {
 				echo 'Check out the project'
 				checkout scm  
 				
-			}
+    }
 
     stage('Maven Building Artifacts')
     {
@@ -18,3 +18,4 @@ pipeline {
    }
 
 }
+
