@@ -4,19 +4,24 @@ pipeline {
         maven 'maven-3.6.3' 
         }
 		
-stages {
+	stages {
 	stage('Checkout Source') {
+		steps {
 				echo 'Check out the project'
 				checkout scm  
 		}
+		}
 
-    stage('Maven Building Artifacts')
-    {
-        bat "mvn clean install"
-    }
+    stage('Maven Building Artifacts'){
+        steps {			
+			bat "mvn clean install"
+		}
+	}	
     stage('Junit Test Results') {
-      junit '**/target/surefire-reports/TEST-*.xml'
-      archiveArtifacts 'target/*.jar'
+		steps {			
+			junit '**/target/surefire-reports/TEST-*.xml'
+			archiveArtifacts 'target/*.jar'
+		}
    }
 
 }
