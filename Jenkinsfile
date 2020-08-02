@@ -23,6 +23,11 @@ pipeline {
 			archiveArtifacts 'target/*.jar'
 		}
    }
+    stage('Build Docker Image'){
+     steps {		
+			sh 'docker build -t sample/my-app:1.0.0 .'
+		}
+   }
 
 }
 }
