@@ -1,2 +1,2 @@
-FROM scratch
-echo 'Docker scrach image is being pulled'
+FROM alpine:3.7
+CMD echo "hello from dockerfile"
