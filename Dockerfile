@@ -1,2 +1,2 @@
-FROM java:8
-COPY target/*.jar /target/
+FROM scratch
+echo 'Docker scrach image is being pulled'
