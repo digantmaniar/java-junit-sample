@@ -1,2 +1,2 @@
-FROM alpine:3.7
-CMD echo "hello from dockerfile"
+FROM openjdk:8-jdk-alpine
+COPY target/*.jar app.jar
