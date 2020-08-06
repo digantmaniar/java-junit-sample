@@ -25,9 +25,17 @@ pipeline {
    }
     stage('Build Docker Image'){
      steps {		
-			bat "docker build -t sample/my-app:1.0.0 ."
+			bat 'docker build -t test123 .'
 		}
    }
+
+     stage('Push Docker Image'){
+		steps {
+           withDockerRegistry([url: "https://310643530327.dkr.ecr.ap-southeast-1.amazonaws.com/test123",credentialsId: "ecr:ap-southeast-1:aws-credentials"]) {
+           bat 'docker push 310643530327.dkr.ecr.ap-southeast-1.amazonaws.com/test123:latest'
+               }
+	    }
+	}
 
 }
 }
