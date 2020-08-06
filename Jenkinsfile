@@ -31,8 +31,10 @@ pipeline {
 
      stage('Push Docker Image'){
 		steps {
+        	echo 'connecting to ECR.. '
            withDockerRegistry([url: "https://310643530327.dkr.ecr.ap-southeast-1.amazonaws.com/test123",credentialsId: "ecr:ap-southeast-1:aws-credentials"]) {
-           bat 'docker push 310643530327.dkr.ecr.ap-southeast-1.amazonaws.com/test123:latest'
+           bat 'docker tag test123:latest 310643530327.dkr.ecr.ap-southeast-1.amazonaws.com/test123:latest'
+	   bat 'docker push 310643530327.dkr.ecr.ap-southeast-1.amazonaws.com/test123:latest'
                }
 	    }
 	}
